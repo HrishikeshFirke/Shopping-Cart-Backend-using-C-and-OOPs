@@ -30,7 +30,7 @@ class consumer{
 	
 	int total=0;
 	string customerName;
-	vector<pair<string,int>>fruits;
+	vector<pair<string,int>> fruits;
 	public:
 		consumer()
 		{
@@ -202,8 +202,9 @@ class login {
 			void adminLogin()
 			{	
 				bool loginScreen = true;
+				int noOfChances = 3;
 	
-				while(loginScreen)
+				while(loginScreen && noOfChances>0)
 				{
 					string password;
 					char ch;	
@@ -217,7 +218,7 @@ class login {
 				      cout << '*';
 				      ch = _getch();
   					 }
-					//getline(cin,password);
+					
 	
 					if(password==admin_password)
 					{
@@ -229,6 +230,8 @@ class login {
 					else
 					{
 						cout<<"   Access aborted. Please try again !!! \n \n"<<endl;
+						cout<<"	  You have "<<noOfChances-1<<" chances left"<<endl;
+						noOfChances--;
 					}
 			    }
 			}				  	
